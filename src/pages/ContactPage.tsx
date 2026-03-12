@@ -19,12 +19,14 @@ export const ContactPage = () => {
     setLoading(true);
     setError(null);
 
+    // Récupération des clés depuis Vite
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+    // Vérification de la configuration
     if (!serviceId || !templateId || !publicKey) {
-      setError("EmailJS n'est pas configuré. Veuillez ajouter les variables d'environnement.");
+      setError("EmailJS n'est pas configuré. Veuillez vérifier vos variables d'environnement dans Netlify ou votre fichier .env.");
       setLoading(false);
       return;
     }
@@ -54,6 +56,7 @@ export const ContactPage = () => {
     <div className="min-h-screen pt-32 pb-20 bg-[#050505]">
       <main className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+          {/* Section Gauche : Infos */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -99,6 +102,7 @@ export const ContactPage = () => {
             </div>
           </motion.div>
 
+          {/* Section Droite : Formulaire */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -129,7 +133,7 @@ export const ContactPage = () => {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-4 text-sm focus:outline-none focus:border-[#F27D26] transition-colors"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-4 text-sm focus:outline-none focus:border-[#F27D26] transition-colors text-white"
                       placeholder="Jean Dupont"
                     />
                   </div>
@@ -140,7 +144,7 @@ export const ContactPage = () => {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-4 text-sm focus:outline-none focus:border-[#F27D26] transition-colors"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-4 text-sm focus:outline-none focus:border-[#F27D26] transition-colors text-white"
                       placeholder="jean@exemple.com"
                     />
                   </div>
@@ -152,7 +156,7 @@ export const ContactPage = () => {
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({...formData, subject: e.target.value})}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-4 text-sm focus:outline-none focus:border-[#F27D26] transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-4 text-sm focus:outline-none focus:border-[#F27D26] transition-colors text-white"
                     placeholder="Proposition d'article, Question..."
                   />
                 </div>
@@ -163,7 +167,7 @@ export const ContactPage = () => {
                     rows={6}
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-4 text-sm focus:outline-none focus:border-[#F27D26] transition-colors resize-none"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-4 text-sm focus:outline-none focus:border-[#F27D26] transition-colors resize-none text-white"
                     placeholder="Comment pouvons-nous vous aider ?"
                   />
                 </div>
