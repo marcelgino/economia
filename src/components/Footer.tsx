@@ -121,7 +121,7 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>Paris, France</li>
-              <li>Genève, Suisse</li>
+              <li></li>
             </ul>
           </div>
         </div>
